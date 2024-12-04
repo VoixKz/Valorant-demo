@@ -1,0 +1,317 @@
+@import 'reset.scss';
+@import url('https://fonts.cdnfonts.com/css/druk-wide-bold');
+
+$main-font: 'Druk Wide Bold', sans-serif;
+$text-font: 'Montserrat', sans-serif;
+$main-color: #1F2326;
+$accent-color: #FF4656;
+
+@mixin flex-x($jc: space-between, $ai: center) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+@mixin flex-y($jc: start, $ai: center) {
+    display: flex;
+    flex-direction: column;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+body {
+    background: $main-color;
+    overflow-x: hidden;
+}
+
+header {
+    padding: 45px 75px;
+}
+
+.header__container, .header__logos, nav ul, .header__account {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logos {
+    gap: 20px;
+    hr {
+        height: 2px;
+        width: 40px;
+        rotate: 90deg;
+        background: #fff;
+    }
+}
+
+nav ul {
+    gap: 100px;
+    li {
+        a {
+            font-size: 24px;
+            font-weight: 900;
+            color: #fff;
+            font-family: $text-font;
+            transition: 1s;
+            &:hover {
+                color: $accent-color;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.header__account {
+    gap: 30px;
+    button {
+        box-sizing: content-box;
+        border: 2px solid #fff;
+        background: transparent;
+        padding: 10px;
+        border-radius: 10px;
+        color: #fff;
+        font-family: $text-font;
+        font-weight: 700;
+        transition: 1s;
+        &:hover {
+            color: #fff;
+            border: none;
+            background: $accent-color;
+        }
+    }
+}
+
+
+
+
+
+footer {
+    background-color: $main-color;
+    padding: 50px 75px; 
+}
+
+.footer__container {
+    @include flex-y();
+    gap: 50px;
+}
+
+.footer__logos {
+    @include flex-x();
+    gap: 50px;
+}
+
+.footer__copyright {
+    text-align: center;
+    color: white;
+    font-family: $text-font;
+    width: 55%;
+}
+
+
+
+
+
+main {
+    background-color: $accent-color;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background: $accent-color;
+    background-image: url('../images/valorant.jpg');
+    background-size: contain;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $accent-color;
+        opacity: 0.8;
+        pointer-events: none;
+        z-index: 1;
+    }
+}
+
+.main__container {
+    z-index: 2;
+    position: relative;
+    padding: 50px 75px 100px;
+    @include flex-y();
+}
+
+.menu {
+    background-color: $main-color;
+    border-radius: 20px;
+    padding: 30px 50px;
+}
+
+.menu__container {
+    @include flex-x();
+    gap: 40px;
+    width: 1100px;
+}
+
+.menu__search--enter {
+    @include flex-x();
+    width: calc(100% - 450px);
+    gap: 15px;
+    background-color: #2b2a29;
+    border-radius: 15px;
+    border: 1px solid rgb(95, 84, 84);
+    height: 45px;
+    padding: 10px 20px;
+    svg {
+        width: 20px;
+        -webkit-filter: invert(100%);
+        filter: invert(100%);
+    }
+    input {
+        border: none;
+        background-color: transparent;
+        color: #fff;
+        &:focus {
+            outline: none;
+        }
+        font-size: 20px;
+    }
+}
+
+.menu__search--options {
+    appearance: none;
+    border: 1px solid rgb(95, 84, 84);
+    font-family: $text-font;
+    background-color: #2b2a29;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 20px;
+    color: white;
+    width: 20%;
+    line-height: 25px;
+    text-align: left;
+    position: relative;
+
+    &::-ms-expand {
+        display: none;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.menu__sorts {
+    gap: 10px;
+    font-size: 20px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+
+    .menu__sort {
+        @include flex-x($jc: center);
+        height: 45px;
+        padding: 10px 20px;
+        color: #fff;
+        background-color: #2b2a29;
+        font-family: $text-font;
+        border-radius: 15px;
+        border: 1px solid rgb(95, 84, 84);
+    }
+}
+
+
+
+.goods {
+    margin-top: 50px;
+    background-color: $main-color;
+    padding: 30px 50px;
+    border-radius: 20px;
+    width: 88%;
+}
+
+.goods__container {
+    @include flex-x();
+    flex-wrap: wrap;
+}
+
+.goods__card {
+    @include flex-y();
+    background-color: #2b2a29;
+    border: 1px solid white;
+    width: 500px;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    img {
+        width: 100%;
+        height: 150px;
+        object-fit: contain;
+        padding: 10px;
+    }
+}
+
+.goods__card__info {
+    @include flex-y();
+    gap: 20px;
+    margin-top: 20px;
+    div {
+        width: 100%;
+        @include flex-x();
+        gap: 100px;
+    }
+}
+
+.goods__card__title {
+    font-family: $main-font;
+    font-size: 30px;
+    font-weight: 300;
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+}
+
+.goods__card__subtitle {
+    font-family: $main-font;
+    font-size: 20px;
+    font-weight: 300;
+    color: $accent-color;
+}
+
+.goods__card__btn {
+    width: 350px;
+    box-sizing: border-box;
+    border: 2px solid #fff;
+    background: transparent;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-family: $text-font;
+    font-weight: 700;
+    transition: 1s;
+    &:hover {
+        color: #fff;
+        border: none;
+        background: $accent-color;
+    }
+}
+
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1000;
+    border: 1px solid white;
+}
+
+.toast.show {
+    opacity: 1;
+}

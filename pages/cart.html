@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru" ng-app="cartApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/cart.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/cart.js" defer></script>
+    <title>Корзина</title>
+</head>
+<body ng-controller="CartController">
+    <script>
+        $(document).ready(function() {
+            var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+    <header>
+        <div class="header__container">
+            <div class="header__logos">
+                <img src="../images/riot_games_logo.svg" alt="riot_games_logo">
+                <hr>
+                <img src="../images/valorant_logo.svg" alt="valorant_logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html" ng-if="currentUser">Shop</a></li>
+                    <li><a href="cart.html" ng-if="currentUser">Cart</a></li>
+                </ul>
+            </nav>
+            <div class="header__account">
+                <button class="sign_in" ng-if="!currentUser" onclick="window.location.href='login.html'">Log In</button>
+                <button class="sign_up" ng-if="!currentUser" onclick="window.location.href='register.html'">Sign Up</button>
+                <button class="sign_out" ng-if="currentUser" ng-click="logout()">Log Out</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main__container">
+            <h1 class="main__title">Корзина</h1>
+            <div class="cart">
+                <div class="cart__item" ng-repeat="item in cart">
+                    <div class="cart__item__container">
+                        <div class="cart__item__content">
+                            <img src="{{item.icon}}" alt="icon">
+                            <div class="cart__item__info">
+                                <p class="cart__item__title">{{item.name}}</p>
+                                <p class="cart__item__count" ng-dblclick="removeItem(item.id)">Count:  {{item.count}}</p>
+                                <p class="cart__item__price">Total:  ${{item.price * item.count}}</p>
+                            </div>
+                        </div>
+                        <div class="cart__item__controls">
+                            <button class="cart__item__btn-increase" ng-click="increaseCount(item.id)">+</button>
+                            <button class="cart__item__btn-decrease" ng-click="decreaseCount(item.id)">-</button>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="cart__menu">
+                    <button class="clear_cart" ng-click="clearCart()">Очистить корзину</button>
+                    <button class="submit_order" ng-click="submitOrder()">Совершить заказ</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer__container">
+            <div class="footer__logos">    
+                <img src="../images/riot_games_logo.svg" alt="riot_games_logo">
+                <img src="../images/valorant_logo.svg" alt="valorant_logo">
+            </div>
+            <p class="footer__copyright">© 2020-2024 Riot Games, Inc. RIOT GAMES, VALORANT и все связанные с ними логотипы являются товарными знаками, знаками обслуживания и/или зарегистрированными товарными знаками Riot Games, Inc.</p>
+        </div>
+    </footer>
+</body>
+</html>

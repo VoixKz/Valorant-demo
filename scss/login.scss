@@ -1,0 +1,82 @@
+@import 'reset.scss';
+@import url('https://fonts.cdnfonts.com/css/druk-wide-bold');
+
+$main-font: 'Druk Wide Bold', sans-serif;
+$text-font: 'Montserrat', sans-serif;
+$main-color: #1F2326;
+$accent-color: #FF4656;
+
+@mixin flex-x($jc: space-between, $ai: center) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+@mixin flex-y($jc: start, $ai: center) {
+    display: flex;
+    flex-direction: column;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+body {
+    overflow-x: hidden;
+    height: 100vh;
+    padding-left: 70px;
+    @include flex-y(center, start);
+    background: url('../images/background-shop2.jpg') no-repeat left center/cover;
+}
+
+.body__container {
+    background: #2b2a29 ;
+    height: 60%;
+    width: 35%;
+    padding: 30px 50px;
+    border-radius: 20px;
+    border: 1px solid white;
+}
+
+.login__title {
+    font-family: $main-font;
+    font-size: 48px;
+    color: $main-color;
+    -webkit-text-stroke: 2px white;
+    margin-bottom: 20px;
+    font-weight: 900;
+    text-align: center;
+}
+
+form {
+    @include flex-y();
+    margin-top: 50px;
+    gap: 30px;
+    .login__email, .login__password {
+        padding: 10px 20px;
+        border-radius: 10px;
+        width: 80%;
+        color: white;
+        background-color: #3d3c3b;
+        border: 1px solid white;
+        &:focus {
+            outline: 1px solid white;
+        }
+    }
+    .login__btn {
+        width: 80%;
+        margin-top: 50px;
+        box-sizing: border-box;
+        border: 2px solid #fff;
+        background: transparent;
+        padding: 10px;
+        border-radius: 10px;
+        color: #fff;
+        font-family: $text-font;
+        font-weight: 700;
+        transition: 1s;
+        &:hover {
+            color: #fff;
+            border: none;
+            background: $accent-color;
+        }
+    }
+}

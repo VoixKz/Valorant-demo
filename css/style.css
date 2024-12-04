@@ -1,0 +1,390 @@
+@import url("https://fonts.cdnfonts.com/css/druk-wide-bold");
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background: #1F2326;
+  overflow-x: hidden;
+}
+
+header {
+  padding: 45px 75px;
+}
+
+.header__container, .header__logos, nav ul, .header__account {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logos {
+  gap: 20px;
+}
+.header__logos hr {
+  height: 2px;
+  width: 40px;
+  rotate: 90deg;
+  background: #fff;
+}
+
+nav ul {
+  gap: 100px;
+}
+nav ul li a {
+  font-size: 24px;
+  font-weight: 900;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  transition: 1s;
+}
+nav ul li a:hover {
+  color: #FF4656;
+  text-decoration: underline;
+}
+
+.header__account {
+  gap: 30px;
+}
+.header__account button {
+  box-sizing: content-box;
+  border: 2px solid #fff;
+  background: transparent;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  transition: 1s;
+}
+.header__account button:hover {
+  color: #fff;
+  border: none;
+  background: #FF4656;
+}
+
+.agents {
+  width: 100%;
+  height: 110vh;
+  background-size: cover;
+  background: #FF4656;
+  background-image: url("../images/background.svg");
+  background-size: contain;
+  position: relative;
+}
+.agents .agents__elements {
+  position: absolute;
+  width: calc(90% - 100px);
+  height: calc(90% - 73px);
+  margin-top: 73px;
+  margin-left: 100px;
+}
+
+.agents__title {
+  display: inline-block;
+  font-weight: 500;
+  font-family: "Druk Wide Bold", sans-serif;
+  font-size: 105px;
+  color: transparent;
+  -webkit-text-stroke: 1px #fff;
+  rotate: 90deg;
+  position: relative;
+  top: 320px;
+  left: -60px;
+}
+
+.agents__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.agents__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  left: 300px;
+  top: -75px;
+  width: 80%;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  scroll-padding-left: 30px;
+  padding-left: 30px;
+  gap: 100px;
+}
+
+.agents__list::-webkit-scrollbar {
+  display: none;
+}
+
+.agents__element {
+  scroll-snap-align: start;
+  display: inline-block;
+  height: 670px;
+  width: 340px;
+}
+.agents__element__title {
+  position: relative;
+  top: 100px;
+  left: -30px;
+  width: 58px;
+  font-size: 58px;
+  font-family: "Druk Wide Bold", sans-serif;
+  color: transparent;
+  -webkit-text-stroke: 1px #fff;
+  rotate: 90deg;
+  font-weight: 500;
+}
+.agents__element__subtitle {
+  position: relative;
+  width: 16px;
+  top: 45px;
+  left: -305px;
+  font-size: 16px;
+  font-family: "Druk Wide Bold", sans-serif;
+  color: #FF4656;
+  rotate: 90deg;
+  font-weight: 500;
+}
+.agents__element__icon {
+  width: 15vw;
+  height: 500px;
+  border-radius: 25px 0;
+  background-color: #1F2326;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.agents__element__abilities {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 230px;
+  top: -50px;
+  left: 20px;
+  padding: 15px;
+  gap: 3px;
+  background-color: #1F2326;
+  border: 3px solid #fff;
+  transition: background-color 1s ease, border-color 1s ease;
+}
+.agents__element__abilities img {
+  width: 30px;
+  height: 30px;
+  transition: filter 1s ease;
+}
+.agents__element.selected .agents__element__abilities {
+  animation: radial-bg 1s forwards, radial-border 1s forwards;
+}
+.agents__element.selected .agents__element__abilities img {
+  filter: invert(1);
+}
+
+.agents__element.selected .agents__element__title {
+  -webkit-text-stroke: 1px #000;
+  transition: -webkit-text-stroke 1s ease;
+}
+
+.agents__element.selected .agents__element__icon {
+  background-color: #fff;
+  transition: background-color 1s ease;
+}
+
+@keyframes radial-bg {
+  0% {
+    background: radial-gradient(circle, #000 0%, #fff 0%);
+  }
+  100% {
+    background: radial-gradient(circle, #fff 100%, #fff 100%);
+  }
+}
+@keyframes radial-border {
+  0% {
+    border-color: #fff;
+  }
+  100% {
+    border-color: #000;
+  }
+}
+.abilities {
+  background-color: white;
+  padding: 50px 20px;
+  height: 100px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 3s ease, transform 1s ease;
+}
+
+.abilities.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.abilities__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  top: -175px;
+}
+
+.abilities__element {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border: 2px black solid;
+  border-radius: 15px 0 15px 0;
+  height: 150px;
+  padding: 32px 32px;
+  gap: 40px;
+  position: relative;
+}
+.abilities__element__icon {
+  width: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 1;
+}
+.abilities__element__rectangle {
+  background-color: #FF4656;
+  width: 110px;
+  height: 100px;
+  position: absolute;
+  right: 50px;
+  bottom: 0;
+}
+.abilities__element__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 16px;
+  width: 200px;
+  z-index: 1;
+}
+.abilities__element__title {
+  font-family: "Druk Wide Bold", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: #C4C4C4;
+}
+.abilities__element__subtitle {
+  font-family: "Druk Wide Bold", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: black;
+}
+.abilities__element__description {
+  font-family: "Montserrat";
+  font-size: 10px;
+  font-weight: 400;
+  color: #1F2326;
+}
+
+.abilities__arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  background-color: white;
+  border: 2px black solid;
+  border-radius: 15px 0 15px 0;
+  height: 150px;
+  cursor: pointer;
+}
+
+.slide-out {
+  animation: slideOut 0.5s forwards ease;
+}
+
+.slide-in {
+  animation: slideIn 0.5s forwards ease;
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+footer {
+  background-color: #1F2326;
+  padding: 50px 75px;
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 50px;
+}
+
+.footer__logos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.footer__copyright {
+  text-align: center;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  width: 55%;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="../css/register.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="AuthController">
+    <div class="body__container">
+        <p class="register__title">Регистрация</p>
+        <form name="registerForm" ng-submit="register()" novalidate>
+            <div>
+                <input class="register__email" type="email" name="email" ng-model="email" placeholder="Email" required>
+                <span ng-show="registerForm.email.$touched && registerForm.email.$invalid">Введите корректный email.</span>
+            </div>
+            <div>
+                <input class="register__password" type="password" name="password" ng-model="password" placeholder="Пароль" ng-minlength="6" required>
+                <span ng-show="registerForm.password.$touched && registerForm.password.$error.required">Пароль обязателен.</span>
+                <span ng-show="registerForm.password.$touched && registerForm.password.$error.minlength">Пароль должен быть не менее 6 символов.</span>
+            </div>
+            <button class="register__btn" type="submit" ng-disabled="registerForm.$invalid">Зарегистрироваться</button>
+        </form>
+    </div>
+    <script src="../js/auth.js"></script>
+</body>
+</html>

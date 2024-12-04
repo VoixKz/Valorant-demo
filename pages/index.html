@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/script.js" defer></script>
+    <title>Valorant Demo</title>
+</head>
+<body ng-app="indexApp" ng-controller="IndexController">
+    <header>
+        <div class="header__container">
+            <div class="header__logos">
+                <img src="../images/riot_games_logo.svg" alt="riot_games_logo">
+                <hr>
+                <img src="../images/valorant_logo.svg" alt="valorant_logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html" ng-if="currentUser">Shop</a></li>
+                    <li><a href="cart.html" ng-if="currentUser">Cart</a></li>
+                </ul>
+            </nav>
+            <div class="header__account">
+                <button class="sign_in" ng-if="!currentUser" onclick="window.location.href='login.html'">Log In</button>
+                <button class="sign_up" ng-if="!currentUser" onclick="window.location.href='register.html'">Sign Up</button>
+                <button class="sign_out" ng-if="currentUser" ng-click="logout()">Log Out</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="agents">
+            <img src="../images/elements.svg" alt="elements" class="agents__elements">
+            <span class="agents__title">Agents</span>
+            <div class="agents__container">
+                <div class="agents__list">
+                    <!-- <div class="agents__element">
+                        <p class="agents__element__title">Phoenix</p>
+                        <p class="agents__element__subtitle">United Kingdom</p>
+                        <img src="../images/phoenix.svg" alt="phoenix" class="agents__element__icon">
+                        <div class="agents__element__abilities">
+                            <img src="../images/Vector.svg" alt="">
+                            <img src="../images/Vector-1.svg" alt="">
+                            <img src="../images/Vector-2.svg" alt="">
+                            <img src="../images/Vector-3.svg" alt="">
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer__container">
+            <div class="footer__logos">    
+                <img src="../images/riot_games_logo.svg" alt="riot_games_logo">
+                <img src="../images/valorant_logo.svg" alt="valorant_logo">
+            </div>
+            <p class="footer__copyright">© 2020-2024 Riot Games, Inc. RIOT GAMES, VALORANT и все связанные с ними логотипы являются товарными знаками, знаками обслуживания и/или зарегистрированными товарными знаками Riot Games, Inc.</p>
+        </div>
+    </footer>
+</body>
+</html>
