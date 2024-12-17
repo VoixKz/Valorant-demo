@@ -346,3 +346,7 @@ main::before {
 .toast.show {
   opacity: 1;
 }
+
+.cabinet a {
+  color: white;
+}

@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/cabinet.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="../js/script.js" defer></script>
+    <script src="../js/cabinet.js" defer></script>
     <title>Valorant Demo</title>
 </head>
-<body ng-app="indexApp" ng-controller="IndexController">
+<body ng-app="indexApp" ng-controller="CabinetController">
     <header>
         <div class="header__container">
             <div class="header__logos">
@@ -33,25 +33,32 @@
         </div>
     </header>
     <main>
-        <section class="agents">
-            <img src="../images/elements.svg" alt="elements" class="agents__elements">
-            <span class="agents__title">Agents</span>
-            <div class="agents__container">
-                <div class="agents__list">
-                    <!-- <div class="agents__element">
-                        <p class="agents__element__title">Phoenix</p>
-                        <p class="agents__element__subtitle">United Kingdom</p>
-                        <img src="../images/phoenix.svg" alt="phoenix" class="agents__element__icon">
-                        <div class="agents__element__abilities">
-                            <img src="../images/Vector.svg" alt="">
-                            <img src="../images/Vector-1.svg" alt="">
-                            <img src="../images/Vector-2.svg" alt="">
-                            <img src="../images/Vector-3.svg" alt="">
-                        </div>
-                    </div> -->
-                </div>
+        <div class="cabinet__container">
+            <h2>Account Information</h2>
+            <div class="cabinet__info">
+                <label for="username">Email:</label>
+                <input type="text" ng-model="currentUser.email" readonly>
             </div>
-        </section>
+            <div class="cabinet__info">
+                <label for="password">Password:</label>
+                <input type="text" ng-model="currentUser.password" readonly>
+            </div>
+            <h2>Change Password</h2>
+            <form name="changePasswordForm" ng-submit="changePassword()">
+                <div class="cabinet__info">
+                    <label for="newPassword">New Password:</label>
+                    <input type="password" id="newPassword" ng-model="newPassword" required>
+                </div>
+                <div class="cabinet__info">
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" ng-model="confirmPassword" required>
+                </div>
+                <div class="cabinet__info">
+                    <span ng-show="passwordError">{{passwordError}}</span>
+                </div>
+                <button type="submit" ng-disabled="changePasswordForm.$invalid || newPassword !== confirmPassword">Change Password</button>
+            </form>
+        </div>
     </main>
     <footer>
         <div class="footer__container">

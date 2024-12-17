@@ -388,3 +388,7 @@ footer {
   font-family: "Montserrat", sans-serif;
   width: 55%;
 }
+
+.cabinet a {
+  color: white;
+}

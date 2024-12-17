@@ -10,14 +10,6 @@
     <title>Корзина</title>
 </head>
 <body ng-controller="CartController">
-    <script>
-        $(document).ready(function() {
-            var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-            if (!currentUser) {
-                window.location.href = 'login.html';
-            }
-        });
-    </script>
     <header>
         <div class="header__container">
             <div class="header__logos">
@@ -35,6 +27,7 @@
             <div class="header__account">
                 <button class="sign_in" ng-if="!currentUser" onclick="window.location.href='login.html'">Log In</button>
                 <button class="sign_up" ng-if="!currentUser" onclick="window.location.href='register.html'">Sign Up</button>
+                <button class="cabinet" ng-if="currentUser"><a href="cabinet.html">Cabinet</a></button>
                 <button class="sign_out" ng-if="currentUser" ng-click="logout()">Log Out</button>
             </div>
         </div>

@@ -1,0 +1,198 @@
+@import url("https://fonts.cdnfonts.com/css/druk-wide-bold");
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background: #1F2326;
+  overflow-x: hidden;
+}
+
+header {
+  padding: 45px 75px;
+}
+
+.header__container, .header__logos, nav ul, .header__account {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logos {
+  gap: 20px;
+}
+.header__logos hr {
+  height: 2px;
+  width: 40px;
+  rotate: 90deg;
+  background: #fff;
+}
+
+nav ul {
+  gap: 100px;
+}
+nav ul li a {
+  font-size: 24px;
+  font-weight: 900;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  transition: 1s;
+}
+nav ul li a:hover {
+  color: #FF4656;
+  text-decoration: underline;
+}
+
+.header__account {
+  gap: 30px;
+}
+.header__account button {
+  box-sizing: content-box;
+  border: 2px solid #fff;
+  background: transparent;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  transition: 1s;
+}
+.header__account button:hover {
+  color: #fff;
+  border: none;
+  background: #FF4656;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background: #FF4656;
+  background-image: url("../images/background.svg");
+  background-size: contain;
+}
+main h2 {
+  font-family: "Druk Wide Bold", sans-serif;
+  font-size: 48px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.cabinet__container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+
+.cabinet__info {
+  margin-bottom: 20px;
+}
+.cabinet__info label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+.cabinet__info input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  background: transparent;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+
+button[type=submit] {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  background: #1F2326;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+button[type=submit]:hover {
+  background: #08090a;
+}
+
+span[ng-show=passwordError] {
+  color: #FF4656;
+  font-weight: 700;
+}
+
+footer {
+  background-color: #1F2326;
+  padding: 50px 75px;
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 50px;
+}
+
+.footer__logos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.footer__copyright {
+  text-align: center;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  width: 55%;
+}
+
+.cabinet a {
+  color: white;
+}

@@ -1,0 +1,177 @@
+@import 'reset.scss';
+@import url('https://fonts.cdnfonts.com/css/druk-wide-bold');
+
+$main-font: 'Druk Wide Bold', sans-serif;
+$text-font: 'Montserrat', sans-serif;
+$main-color: #1F2326;
+$accent-color: #FF4656;
+
+@mixin flex-x($jc: space-between, $ai: center) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+@mixin flex-y($jc: start, $ai: center) {
+    display: flex;
+    flex-direction: column;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+body {
+    background: $main-color;
+    overflow-x: hidden;
+}
+
+header {
+    padding: 45px 75px;
+}
+
+.header__container, .header__logos, nav ul, .header__account {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logos {
+    gap: 20px;
+    hr {
+        height: 2px;
+        width: 40px;
+        rotate: 90deg;
+        background: #fff;
+    }
+}
+
+nav ul {
+    gap: 100px;
+    li {
+        a {
+            font-size: 24px;
+            font-weight: 900;
+            color: #fff;
+            font-family: $text-font;
+            transition: 1s;
+            &:hover {
+                color: $accent-color;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.header__account {
+    gap: 30px;
+    button {
+        box-sizing: content-box;
+        border: 2px solid #fff;
+        background: transparent;
+        padding: 10px;
+        border-radius: 10px;
+        color: #fff;
+        font-family: $text-font;
+        font-weight: 700;
+        transition: 1s;
+        &:hover {
+            color: #fff;
+            border: none;
+            background: $accent-color;
+        }
+    }
+}
+
+
+
+main {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background: $accent-color;
+    background-image: url('../images/background.svg');
+    background-size: contain;   
+    h2 {
+        font-family: $main-font;
+        font-size: 48px;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+}
+
+.cabinet__container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #fff;
+    font-family: $text-font;
+}
+
+.cabinet__info {
+    margin-bottom: 20px;
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 700;
+    }
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #fff;
+        border-radius: 5px;
+        background: transparent;
+        color: #fff;
+        font-family: $text-font;
+    }
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background: $main-color;
+    color: #fff;
+    font-family: $text-font;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s;
+    &:hover {
+        background: darken($main-color, 10%);
+    }
+}
+
+span[ng-show="passwordError"] {
+    color: $accent-color;
+    font-weight: 700;
+}
+
+
+
+footer {
+    background-color: $main-color;
+    padding: 50px 75px; 
+}
+
+.footer__container {
+    @include flex-y();
+    gap: 50px;
+}
+
+.footer__logos {
+    @include flex-x();
+    gap: 50px;
+}
+
+.footer__copyright {
+    text-align: center;
+    color: white;
+    font-family: $text-font;
+    width: 55%;
+}
+
+.cabinet a {
+    color: white;
+}

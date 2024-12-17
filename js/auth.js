@@ -23,6 +23,7 @@ app.controller('AuthController', function($scope) {
     $scope.login = function() {
         var users = JSON.parse(localStorage.getItem('users')) || [];
         var user = users.find(u => u.email === $scope.email && u.password === $scope.password);
+        
         if (user) {
             localStorage.setItem('currentUser', JSON.stringify(user));
             alert('Вход успешен');
